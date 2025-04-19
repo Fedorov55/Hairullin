@@ -1,0 +1,63 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:SimpleProductApp.ViewModels"
+             x:Class="SimpleProductApp.Views.ProductListPage"
+             Title="Products"
+             x:DataType="vm:ProductViewModel">
+
+    <CollectionView ItemsSource="{Binding Products}">
+        <CollectionView.ItemTemplate>
+            <DataTemplate>
+                <Frame CornerRadius="12"
+                       Padding="0"
+                       BackgroundColor="{AppThemeBinding Light=White, Dark=#1E1E1E}"
+                       BorderColor="{AppThemeBinding Light=#EEEEEE, Dark=#333333}"
+                       HasShadow="True"
+                       HeightRequest="220">
+
+                    <Grid ColumnDefinitions="Auto,*"
+                          RowDefinitions="Auto,Auto,Auto"
+                          Padding="10">
+
+                        <Image Source="{Binding ImageSource}"
+                               WidthRequest="100"
+                               HeightRequest="100"
+                               Aspect="AspectFit"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center"
+                               Grid.Row="0"
+                               Grid.RowSpan="3"/>
+
+                        <VerticalStackLayout Grid.Column="1"
+                                             Grid.Row="0"
+                                             Spacing="3"
+                                             VerticalOptions="Start">
+                            <Label Text="{Binding Name}"
+                                   FontSize="16"
+                                   FontAttributes="Bold"
+                                   LineBreakMode="TailTruncation"
+                                   TextColor="{AppThemeBinding Light=#212121, Dark=White}" />
+                        </VerticalStackLayout>
+
+                        <Label Text="{Binding Description}"
+                               FontSize="14"
+                               LineBreakMode="WordWrap"
+                               TextColor="{AppThemeBinding Light=#424242, Dark=#EEEEEE}"
+                               Grid.Column="1"
+                               Grid.Row="1"
+                               VerticalOptions="FillAndExpand"/>
+
+                        <Label Text="{Binding Price, StringFormat='{0:C}'}"
+                               FontSize="18"
+                               FontAttributes="Bold"
+                               TextColor="{AppThemeBinding Light=#6200EE, Dark=#BB86FC}"
+                               VerticalOptions="End"
+                               HorizontalOptions="End"
+                               Grid.Column="1"
+                               Grid.Row="2" />
+                    </Grid>
+                </Frame>
+            </DataTemplate>
+        </CollectionView.ItemTemplate>
+    </CollectionView>
+</ContentPage>

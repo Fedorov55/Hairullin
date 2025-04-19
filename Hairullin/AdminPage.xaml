@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Hairullin.AdminPage"
+             Title="Авторизация"
+             BackgroundColor="{AppThemeBinding Light=#F5F5F5, Dark=#121212}">
+    <ScrollView>
+        <VerticalStackLayout 
+        VerticalOptions="Center"
+        Padding="30,40"
+        Spacing="30">
+
+            <!-- Заголовок -->
+            <Label Text="Вход для администратора"
+               FontSize="24"
+               FontAttributes="Bold"
+               HorizontalOptions="Center"
+               TextColor="{AppThemeBinding Light=#6200EE, Dark=#BB86FC}"/>
+
+            <!-- Поле логина -->
+            <Frame CornerRadius="12"
+               Padding="10"
+               BackgroundColor="{AppThemeBinding Light=White, Dark=#2D2D2D}"
+               HasShadow="True">
+                <Entry x:Name="UserName" 
+                   Placeholder="Логин"
+                   PlaceholderColor="#999999"
+                   TextColor="{AppThemeBinding Light=Black, Dark=White}"
+                   FontSize="16"
+              
+                   ClearButtonVisibility="WhileEditing"/>
+            </Frame>
+
+            <!-- Поле пароля -->
+            <Frame CornerRadius="12"
+               Padding="10"
+               BackgroundColor="{AppThemeBinding Light=White, Dark=#2D2D2D}"
+               HasShadow="True">
+                <Entry x:Name="UserPass" 
+                   Placeholder="Пароль"
+                   PlaceholderColor="#999999"
+                   TextColor="{AppThemeBinding Light=Black, Dark=White}"
+                   FontSize="16"
+               
+                   IsPassword="True"
+                   ClearButtonVisibility="WhileEditing"/>
+            </Frame>
+
+            <!-- Кнопка входа -->
+            <Button Text="Войти" 
+                Clicked="GoToAdminMenuPage"
+                BackgroundColor="#6200EE"
+                TextColor="White"
+                FontSize="16"
+                FontAttributes="Bold"
+                CornerRadius="20"
+                HeightRequest="50"
+                Margin="0,20,0,0"/>
+
+            <!-- Дополнительные элементы (опционально) -->
+            <Label Text="Только для авторизованного персонала"
+               FontSize="12"
+               TextColor="#999999"
+               HorizontalOptions="Center"/>
+
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

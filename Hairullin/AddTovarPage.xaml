@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Hairullin.AddTovarPage"
+             Title="Добавление товара"
+             BackgroundColor="{AppThemeBinding Light=#F5F5F5, Dark=#121212}">
+    <ScrollView>
+        <VerticalStackLayout 
+         Padding="30,10"
+         Spacing="25"
+         VerticalOptions="Start">
+
+            <!-- Заголовок -->
+            <Label Text="Добавить новый товар"
+                FontSize="24"
+                FontAttributes="Bold"
+                HorizontalOptions="Center"
+                TextColor="{AppThemeBinding Light=#6200EE, Dark=#BB86FC}"
+                Margin="0,0,0,20"/>
+
+          
+
+            <!-- Поле наименования -->
+            <Label Text="Наименование товара:"
+                FontSize="14"
+                TextColor="{AppThemeBinding Light=#666666, Dark=#AAAAAA}"/>
+            <Frame CornerRadius="12"
+                Padding="5"
+                BackgroundColor="{AppThemeBinding Light=White, Dark=#2D2D2D}"
+                HasShadow="True">
+                <Entry x:Name="NameEntry" 
+                    Placeholder="Введите название"
+                    PlaceholderColor="#999999"
+                    TextColor="{AppThemeBinding Light=Black, Dark=White}"
+                    FontSize="16"
+                   
+                    ClearButtonVisibility="WhileEditing"/>
+            </Frame>
+
+            <!-- Поле описания -->
+            <Label Text="Описание товара:"
+                FontSize="14"
+                TextColor="{AppThemeBinding Light=#666666, Dark=#AAAAAA}"/>
+            <Frame CornerRadius="12"
+                Padding="5"
+                BackgroundColor="{AppThemeBinding Light=White, Dark=#2D2D2D}"
+                HasShadow="True">
+                <Editor x:Name="DescriptionEntry" 
+                    Placeholder="Введите описание"
+                    PlaceholderColor="#999999"
+                    TextColor="{AppThemeBinding Light=Black, Dark=White}"
+                    FontSize="16" 
+                    AutoSize="TextChanges"
+                    HeightRequest="100"/>
+            </Frame>
+
+            <!-- Поле стоимости -->
+            <Label Text="Стоимость:"
+                FontSize="14"
+                TextColor="{AppThemeBinding Light=#666666, Dark=#AAAAAA}"/>
+            <Frame CornerRadius="12"
+                Padding="5"
+                BackgroundColor="{AppThemeBinding Light=White, Dark=#2D2D2D}"
+                HasShadow="True">
+                <Entry x:Name="PriceEntry" 
+                    Placeholder="0.00"
+                    PlaceholderColor="#999999"
+                    TextColor="{AppThemeBinding Light=Black, Dark=White}"
+                    FontSize="16"
+                   
+                    Keyboard="Numeric"
+                    ClearButtonVisibility="WhileEditing"/>
+            </Frame>
+
+            <Button Text="Выбрать изображение" Clicked="OnPickImageClicked" />
+
+            <Image x:Name="ImagePreview" HeightRequest="150" WidthRequest="150" HorizontalOptions="Center" />
+
+            <!-- Кнопка сохранения -->
+            <Button Text="Сохранить товар" 
+                 Clicked="OnSaveClicked"
+                 BackgroundColor="#6200EE"
+                 TextColor="White"
+                 FontSize="16"
+                 FontAttributes="Bold"
+                 CornerRadius="20"
+                 HeightRequest="50"
+                 Margin="0,10,0,0"/>
+
+            <Button Text="Назад" 
+                 Clicked="OnBackClicked"
+                 BackgroundColor="#6200EE"
+                 TextColor="White"
+                 FontSize="16"
+                 FontAttributes="Bold"
+                 CornerRadius="20"
+                 HeightRequest="50"
+                 Margin="0,5,0,0"/>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
